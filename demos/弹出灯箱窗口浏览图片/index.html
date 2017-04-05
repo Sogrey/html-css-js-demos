@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>弹出灯箱窗口浏览图片-柯乐义</title>
+<link rel="stylesheet" href="css/keleyi.css">
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/keleyi.min.js"></script>
+<style>img{border:0px}</style>
+</head>
+
+<body>
+<h2>弹出窗口浏览图片</h2>
+<div><a href="http://keleyi.com/a/bjac/ppdss7ux.htm">原文</a> 
+请点击下列图片
+</div>
+<div class="dengxaing-keleyi-com"> 
+
+<a title="2013-8-21" href="http://keleyi.com/keleyi/phtml/jqtexiao/3/images/keleyi-com-2013-8-21_w.jpg">
+<img width="133" height="75" src="http://keleyi.com/keleyi/phtml/jqtexiao/3/images/keleyi-com-2013-8-21_s.jpg"></a> 
+
+<a title="2013-9-13" href="http://keleyi.com/keleyi/phtml/jqtexiao/3/images/keleyi-com-2013-9-13_w.jpg"> 
+<img width="133" height="75" src="http://keleyi.com/keleyi/phtml/jqtexiao/3/images/keleyi-com-2013-9-13_s.jpg"></a>
+
+<a title="2013-9-15" href="http://keleyi.com/keleyi/phtml/jqtexiao/3/images/keleyi-com-2013-9-15_w.jpg">
+<img width="133" height="75" src="http://keleyi.com/keleyi/phtml/jqtexiao/3/images/keleyi-com-2013-9-15_s.jpg"></a> 
+
+<a title="2013-9-16" href="http://keleyi.com/keleyi/phtml/jqtexiao/3/images/keleyi-com-2013-9-16_w.jpg">
+<img width="133" height="75" src="http://keleyi.com/keleyi/phtml/jqtexiao/3/images/keleyi-com-2013-9-16_s.jpg"></a> 
+
+<a title="2013-9-17" href="http://keleyi.com/keleyi/phtml/jqtexiao/3/images/keleyi-com-2013-9-17_w.jpg">
+<img width="133" height="75" src="http://keleyi.com/keleyi/phtml/jqtexiao/3/images/keleyi-com-2013-9-17_s.jpg"></a> 
+
+<a title="2013-9-23" href="http://keleyi.com/keleyi/phtml/jqtexiao/3/images/keleyi-com-2013-9-23_w.jpg">
+<img width="133" height="75" src="http://keleyi.com/keleyi/phtml/jqtexiao/3/images/keleyi-com-2013-9-23_s.jpg"></a> 
+
+<a title="2013-10-2" href="http://keleyi.com/keleyi/phtml/jqtexiao/3/images/keleyi-com-2013-10-2_w.jpg">
+<img width="133" height="75" src="http://keleyi.com/keleyi/phtml/jqtexiao/3/images/keleyi-com-2013-10-2_s.jpg"></a>
+</div>
+
+<script type="text/jscript">
+$(document).ready(function() {
+
+$('.dengxaing-ke' + 'leyi-com').magnificPopup({
+delegate: 'a',
+type: 'image',
+tLoading: 'Loading image #%curr%...',
+mainClass: 'mfp-img-mobile',
+gallery: {
+enabled: true,
+navigateByImgClick: true,
+preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+},
+image: {
+tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+titleSrc: function(item) {
+return item.el.attr('title') + '<small>by Keleyi</small>';
+}
+}
+});
+
+
+});
+
+</script>
+</body>
+</html>
