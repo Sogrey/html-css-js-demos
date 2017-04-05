@@ -10,12 +10,9 @@ table th:nth-of-type(2) {
     width: 120px;
 }
 table th:nth-of-type(3) {
-    width: 50px;
+    width: 250px;
 }
 table th:nth-of-type(4) {
-    width: 200px;
-}
-table th:nth-of-type(5) {
     width: 260px;
 }
 </style>
