@@ -2,7 +2,26 @@
 
 > 以下demo均来自互联网
 
-|name|download|website|description|preview|
+<style>
+table th:nth-of-type(1) {
+    width: 200px;
+}
+table th:nth-of-type(2) {
+    width: 120px;
+}
+table th:nth-of-type(3) {
+    width: 50px;
+}
+table th:nth-of-type(4) {
+    width: 200px;
+}
+table th:nth-of-type(5) {
+    width: 260px;
+}
+</style>
+
+
+|name|download|url|description|preview|
 |----|--------|-------|-----------|-------|
 |parallax-slider|[download](https://sogrey.github.io/html-css-js-demos/demos/parallax-slider.zip)|[url](https://sogrey.github.io/html-css-js-demos/demos/parallax-slider/)|炫酷相册效果|<center><a href="https://sogrey.github.io/html-css-js-demos/art/parallax-slider.jpg"><img src="https://sogrey.github.io/html-css-js-demos/art/parallax-slider.jpg" width="50%"/></a></center>|
 |webgl-clouds|[download](https://sogrey.github.io/html-css-js-demos/demos/webgl-clouds.zip)|[url](https://sogrey.github.io/html-css-js-demos/demos/webgl-clouds/)|云中漫步|<center><a href="https://sogrey.github.io/html-css-js-demos/art/webgl_clouds.jpg"><img src="https://sogrey.github.io/html-css-js-demos/art/webgl_clouds.jpg" width="50%"/></a></center>|
