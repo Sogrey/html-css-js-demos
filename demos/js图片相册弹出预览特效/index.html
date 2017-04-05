@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>js图片相册弹出预览特效</title>
+<style type="text/css">
+*{padding:0; margin:0}
+#mbOverlay { position:fixed; z-index:9998; top:0; left:0; width:100%; height:100%; background-color:#000; cursor:pointer; }
+#mbOverlay.mbOverlayFF { background:transparent url(80.png) repeat; }
+#mbOverlay.mbOverlayIE { position:absolute; }
+#mbCenter { height:557px; position:absolute; z-index:9999; left:50%; background-color:#fff; -moz-border-radius:10px; -webkit-border-radius:10px; -moz-box-shadow:0 10px 40px rgba(0, 0, 0, 0.70); -webkit-box-shadow:0 10px 40px rgba(0, 0, 0, 0.70); }
+#mbCenter.mbLoading { background:#fff url(images/WhiteLoading.gif) no-repeat center; -moz-box-shadow:none; -webkit-box-shadow:none; }
+#mbImage { left:0; top:0; font-family:Myriad, Verdana, Arial, Helvetica, sans-serif; line-height:20px; font-size:12px; color:#fff; text-align:left; background-position:center center; background-repeat:no-repeat; padding:10px; }
+#mbImage a, #mbImage a:link, #mbImage a:visited { color:#ddd; }
+#mbImage a:hover, #mbImage a:active { color:#fff; }
+#mbBottom { min-height:20px; font-family:Myriad, Verdana, Arial, Helvetica, sans-serif; line-height:20px; font-size:12px; color:#999; text-align:left; padding:0 10px 10px; }
+#mbTitle { display:inline; color:#999; font-weight:bold; line-height:20px; font-size:12px; }
+#mbNumber { background:url(images/mbNumber_bg.gif) no-repeat center; display:inline; color:#C00; line-height:26px; font-size:12px; position: absolute; bottom: 10px; right: 10px; text-align: center; width:65px; height:26px; }
+#mbCaption { display:block; color:#999; line-height:14px; font-size:10px; }
+#mbPrevLink, #mbNextLink, #mbCloseLink { display:block; float:right; height:20px; margin:0; outline:none; }
+#mbPrevLink { width:32px; height:100px; background:transparent url(images/CustomBlackPrevious.gif) no-repeat center; position: absolute; top:38%; left:-32px; }
+#mbNextLink { width:32px; height:100px; background:transparent url(images/CustomBlackNext.gif) no-repeat center; position: absolute; top:38%; right:-32px; }
+#mbCloseLink { width:24px; background:transparent url(images/CustomBlackClose.gif) no-repeat center; position:absolute; top:10px; right:10px; }
+#mbError { position:relative; font-family:Myriad, Verdana, Arial, Helvetica, sans-serif; line-height:20px; font-size:12px; color:#fff; text-align:center; border:10px solid #700; padding:10px 10px 10px; margin:20px; -moz-border-radius:5px; -webkit-border-radius:5px; }
+#mbError a, #mbError a:link, #mbError a:visited, #mbError a:hover, #mbError a:active { color:#d00; font-weight:bold; text-decoration:underline; }
+.layout_default{float:left; margin:5px}
+.mod_gallerylist{width:665px; margin:0 auto}
+.meta{font-size:12px; text-align:center;}
+.image_container img{border:1px solid #CCC; padding:2px}
+.meta a{color:#333; text-decoration:none}
+</style>
+<script type="text/javascript" src="js/mootools-core.js"></script>
+<script type="text/javascript" src="js/mediabox.js"></script>
+</head>
+<body>
+<div style="background:#FFF; padding:50px; height:460px">
+<!--效果开始-->
+<div class="mod_gallerylist">
+  <div class="layout_default">
+    <p class="info"><span class="date"></span> <span class="author"></span></p>
+    <div class="image_container">
+    <a href="images/intke_big13374491051476485372.jpg" rel="lightbox[ostec]" title="站长素材网站建设"> <img src="images/intke_sml133744910520499347.jpg" alt="站长素材网站建设" > </a>
+    </div>
+    <div class="meta"><a href="javascript:;" target="_blank">站长素材网站建设</a></div>
+  </div>
+  <div class="layout_default">
+    <p class="info"><span class="date"></span> <span class="author"></span></p>
+    <div class="image_container"> <a href="images/intke_big13374504021333938490.jpg" rel="lightbox[ostec]" title="站长素材HTML学习"> <img src="images/intke_sml13374504021636181143.jpg" alt="站长素材HTML学习" > </a> </div>
+    <div class="meta"><a href="javascript:;" target="_blank">站长素材HTML学习</a></div>
+  </div>
+  <div class="layout_default">
+    <p class="info"><span class="date"></span> <span class="author"></span></p>
+    <div class="image_container"> <a href="images/intke_big1337449105730755107.jpg" rel="lightbox[ostec]" title="站长素材图文特效"> <img src="images/intke_sml1337449105477712782.jpg" alt="站长素材图文特效" > </a> </div>
+    <div class="meta"><a href="javascript:;" target="_blank">站长素材图文特效</a></div>
+  </div>
+  <div class="layout_default">
+    <p class="info"><span class="date"></span> <span class="author"></span></p>
+    <div class="image_container"> <a href="images/intke_big133744930430337079.jpg" rel="lightbox[ostec]" title="站长素材文字特效"> <img src="images/intke_sml1337449304825420900.jpg" alt="站长素材文字特效" > </a> </div>
+    <div class="meta"><a href="javascript:;" target="_blank">站长素材文字特效</a></div>
+  </div>
+  <div class="layout_default">
+    <p class="info"><span class="date"></span> <span class="author"></span></p>
+    <div class="image_container"> <a href="images/intke_big13374494201592646066.jpg" rel="lightbox[ostec]" title="站长素材网站教程"> <img src="images/intke_sml13374494201301118452.jpg" alt="站长素材网站教程" > </a> </div>
+    <div class="meta"><a href="javascript:;" target="_blank">站长素材网站教程</a></div>
+  </div>
+  <div class="layout_default">
+    <p class="info"><span class="date"></span> <span class="author"></span></p>
+    <div class="image_container"> <a href="images/intke_big13374495191424249848.jpg" rel="lightbox[ostec]" title="站长素材web应用"> <img src="images/intke_sml13374495191050454634.jpg" alt="站长素材web应用" > </a> </div>
+    <div class="meta"><a href="javascript:;" target="_blank">站长素材web应用</a></div>
+  </div>
+  <div class="layout_default">
+    <p class="info"><span class="date"></span> <span class="author"></span></p>
+    <div class="image_container"> <a href="images/intke_big1337449672927723673.jpg" rel="lightbox[ostec]" title="站长素材精品网站"> <img src="images/intke_sml13374496721104375571.jpg" alt="站长素材精品网站" > </a> </div>
+    <div class="meta"><a href="javascript:;" target="_blank">站长素材精品网站</a></div>
+  </div>
+  <div class="layout_default">
+    <p class="info"><span class="date"></span> <span class="author"></span></p>
+    <div class="image_container"> <a href="images/intke_big1337450114295777140.jpg" rel="lightbox[ostec]" title="站长素材技术分享"> <img src="images/intke_sml13374501141381000271.jpg" alt="站长素材技术分享" > </a> </div>
+    <div class="meta">站长素材技术分享</div>
+  </div>
+  <div class="layout_default">
+    <p class="info"><span class="date"></span> <span class="author"></span></p>
+    <div class="image_container"> <a href="images/intke_big13374502591823245699.jpg" rel="lightbox[ostec]" title="站长素材网站SEO"> <img src="images/intke_sml1337450259850139751.jpg" alt="站长素材网站SEO" > </a> </div>
+    <div class="meta"><a href="javascript:;" target="_blank">站长素材网站SEO</a></div>
+  </div>
+</div>
+<script type="text/javascript">
+Mediabox.scanPage = function() {
+  var links = $$("a").filter(function(el) {
+    return el.rel && el.rel.test(/^lightbox/i);
+  });
+  $$(links).mediabox({/* Put custom options here */}, null, function(el) {
+    var rel0 = this.rel.replace(/[[]|]/gi," ");
+    var relsize = rel0.split(" ");
+    return (this == el) || ((this.rel.length > 8) && el.rel.match(relsize[1]));
+  });
+};
+window.addEvent("domready", Mediabox.scanPage);
+</script>
+<!--End-->
+</div>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. </p>
+<p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
+</div>
+</body>
+</html>
