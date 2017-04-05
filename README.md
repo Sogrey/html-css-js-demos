@@ -2,20 +2,6 @@
 
 > 以下demo均来自互联网
 
-<style>
-table th:nth-of-type(1) {
-    width: 200px;
-}
-table th:nth-of-type(2) {
-    width: 120px;
-}
-table th:nth-of-type(3) {
-    width: 250px;
-}
-table th:nth-of-type(4) {
-    width: 260px;
-}
-</style>
 
 
 |name|download|description|preview|
@@ -32,5 +18,6 @@ table th:nth-of-type(4) {
 |[点击图片弹出相册幻灯片代码](https://sogrey.github.io/html-css-js-demos/demos/jquery点击图片弹出相册幻灯片代码/)|[download](https://sogrey.github.io/html-css-js-demos/demos/jquery点击图片弹出相册幻灯片代码.zip)|点击图片弹出相册幻灯片|<center><a href="https://raw.githubusercontent.com/Sogrey/html-css-js-demos/master/art/jquery点击图片弹出相册幻灯片代码.gif"><img src="https://raw.githubusercontent.com/Sogrey/html-css-js-demos/master/art/jquery点击图片弹出相册幻灯片代码.gif" width="50%"/></a></center>|
 |[弹出灯箱窗口浏览图片](https://sogrey.github.io/html-css-js-demos/demos/弹出灯箱窗口浏览图片/)|[download](https://sogrey.github.io/html-css-js-demos/demos/弹出灯箱窗口浏览图片.zip)|弹出灯箱窗口浏览图片|<center><a href="https://raw.githubusercontent.com/Sogrey/html-css-js-demos/master/art/弹出灯箱窗口浏览图片.gif"><img src="https://raw.githubusercontent.com/Sogrey/html-css-js-demos/master/art/弹出灯箱窗口浏览图片.gif" width="50%"/></a></center>|
 |[选项卡美化Tabs特效](https://sogrey.github.io/html-css-js-demos/demos/Bootstrap选项卡美化Tabs特效/)|[download](https://sogrey.github.io/html-css-js-demos/demos/Bootstrap选项卡美化Tabs特效.zip)|选项卡美化Tabs特效|<center><a href="https://raw.githubusercontent.com/Sogrey/html-css-js-demos/master/art/Bootstrap选项卡美化Tabs特效.jpg"><img src="https://raw.githubusercontent.com/Sogrey/html-css-js-demos/master/art/Bootstrap选项卡美化Tabs特效.jpg" width="50%"/></a></center>|
+|[CSS3进度条加载特效](https://sogrey.github.io/html-css-js-demos/demos/CSS3 Animation进度条加载特效/)|[download](https://sogrey.github.io/html-css-js-demos/demos/CSS3 Animation进度条加载特效.zip)|进度条加载特效|<center><a href="https://raw.githubusercontent.com/Sogrey/html-css-js-demos/master/art/CSS3 Animation进度条加载特效.jpg"><img src="https://raw.githubusercontent.com/Sogrey/html-css-js-demos/master/art/CSS3 Animation进度条加载特效.jpg" width="50%"/></a></center>|
 
 
