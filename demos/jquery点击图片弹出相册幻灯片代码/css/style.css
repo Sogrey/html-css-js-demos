@@ -1,0 +1,9 @@
+@charset "utf-8";
+#vlightbox{width:680px;height:355px;margin:0 auto;}
+#vlightbox span{display:block;}
+#vlightbox a{display:block;float:left;width:310px;height:155px;margin:3px 1px;padding:6px;border:solid 1px #b8b8b8;
+background-color:#f4f5f5;opacity:0.87;}
+#vlightbox a img{display:block;border:none;margin:0px;}
+#vlightbox a:hover{opacity:1;}
+#vlightbox a.vlightbox_hidden{display:none;}
+#vlightbox a img{border:medium none;margin:0 auto;width:310px;height:155px;}

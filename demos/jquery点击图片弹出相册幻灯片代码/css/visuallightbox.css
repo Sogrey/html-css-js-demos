@@ -1,0 +1,259 @@
+#overlay{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:1090;
+	width:100%;
+	height:auto;
+	background-color:#131313;
+}
+
+#lightbox{
+	position:absolute;
+	top:20px;
+	left:0;
+	width:100%;
+	z-index:1100;
+	text-align:center;
+	color:white;
+	line-height:0;
+}
+
+#lightbox a, #lightbox a:hover {
+	border-bottom:none;
+	color:white;
+	text-decoration:underline;
+}
+
+#lightbox a img{ border:none; }
+
+#outerImageContainer{
+	width:auto;
+	height:auto; /* without this line error in IE8 detected */
+	margin:0 auto;
+	position:relative;
+}
+
+#lightboxImage{
+	width:100%;
+	height:100%;
+}
+
+#imageContainer{
+	width:50px;
+	height:50px;
+	margin:0 auto;
+	overflow:hidden;
+	position:relative;
+	font-size:0;/* ie fix - big info bar*/
+}
+
+#loading{
+	position:absolute;
+	top:40%;
+	left:0;
+	height:25%;
+	width:100%;
+	text-align:center;
+	font-size:10px;
+	z-index:1;
+}
+#loadingLink {
+	display:block;
+	margin:0 auto;
+	padding:0;
+	width:60%;
+	height:32px;
+	background:url(../icons/loading.gif) center center no-repeat;
+	text-indent:-9999px;
+}
+#hoverNav{
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	z-index:10;
+}
+#imageContainer>#hoverNav{ left:0;}
+#hoverNav a{ outline:none;}
+
+#prevLinkImg, #nextLinkImg{
+	width:49%;
+	height:100%;
+	background-image:url(data:image/gif;base64,AAAA); /* Trick IE into showing hover */
+	display:block;
+	text-indent:-9999px;
+	}
+#prevLinkImg { left:0; float:left;}
+#nextLinkImg { right:0; float:right;}
+#prevLinkImg:hover, #prevLinkImg:visited:hover { 
+	background:url(../icons/prev.png) 5% center no-repeat; 
+	_background-image:url(../icons/prev.gif)
+}
+#nextLinkImg:hover, #nextLinkImg:visited:hover { 
+	background:url(../icons/next.png) 97% center no-repeat; 
+	_background-image:url(../icons/next.gif)
+}
+
+#imageDataContainer{
+	font:10px Verdana, Helvetica, sans-serif;
+	font-family:" Trebuchet MS",tahoma,verdana,arial,sans-serif;
+	font-size:13px;
+	width:100%;
+}
+
+#imageData{
+	overflow:hidden;
+	width:100%;
+}
+#imageDetails{ width:70%; float:left; text-align:left; 	padding:10px 10px 0 0;}
+#caption{ font-weight:bold; display:block;}
+#numberDisplay{ display:block; float:left; padding:9px 10px 0 0;}
+#detailsNav{display:block; float:left;   padding:0; }
+#prevLinkDetails, #nextLinkDetails, #slideShowControl{ background-repeat:no-repeat; outline-style:none; display:block; float:left;}
+#prevLinkDetails {
+	margin:2px; width:32px;height:32px; background-position:left 100%;
+	background-image:url(../icons/navigation.png);
+	_background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icons/prev-32grey.png', sizingMethod='scale');
+}
+#prevLinkDetails:hover {
+	background-position:0 0;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icons/prev-32color.png', sizingMethod='scale');
+}
+
+#nextLinkDetails {
+	margin:2px; width:32px;height:32px; background-position:right 100%;
+	background-image:url(../icons/navigation.png);
+	_background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icons/next32-grey.png', sizingMethod='scale');
+}
+#nextLinkDetails:hover {
+	background-position:100% 0;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icons/next32-color.png', sizingMethod='scale');
+}
+#slideShowControl{
+	display:block;
+	width:32px; 
+	height:32px; 
+	float:left;
+	margin:2px; 
+	background-image:url(../icons/navigation.png);
+	background-position:-32px 100%;
+	background-repeat:no-repeat;
+	_background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icons/start32grey.png', sizingMethod='scale');
+}
+#slideShowControl:hover{
+	background-position:-32px 0;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icons/start32color.png', sizingMethod='scale');
+}
+#slideShowControl.started{
+	background-position:-64px 100%;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icons/pause32grey.png', sizingMethod='scale');
+}
+#slideShowControl.started:hover{
+	background-position:-64px 0;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icons/pause32color.png', sizingMethod='scale');
+}
+
+#close{
+	padding:16px 0 0;
+	float:right;
+}
+#closeLink {
+	display:block; 
+	outline-style:none; 
+	margin:0; 
+	padding:0; 
+	text-decoration:none; 
+	width:48px;
+	height:48px;
+	background:url(../icons/close.png) no-repeat 0 100%;
+	_background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icons/cancel48grey.png', sizingMethod='scale');
+}
+#closeLink:hover{
+	background-position:0 0;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icons/cancel48color.png', sizingMethod='scale');
+}
+
+.clearfix:after { content:"."; display:block; height:0; clear:both; visibility:hidden;}
+* html>body .clearfix {display:inline-block; width:100%;}
+
+* html .clearfix {
+	/* Hides from IE-mac \*/
+	height:1%;
+	/* End hide from IE-mac */
+}	
+
+#outerImageFrame{
+	height:100%;
+	width:100%;
+	position:absolute;
+}
+
+#outerImageContainer{
+	overflow:visible;
+}
+#outerImageContainer td{
+	text-align:center;
+	padding:0;
+}
+
+#lightboxFrameBody{
+	background:url(../icons/back_info.png);
+	_background:none;
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icons/back_info.png', sizingMethod='scale');
+}
+
+#outerImageContainer td{
+	font-size:0;
+}
+/* frame style */
+#outerImageContainer td.tl, #outerImageContainer td.br{
+	height:19px;
+	width:19px;
+}
+
+#outerImageContainer td.tl{
+	background:url(../icons/back_corvers.png) 0 0;
+	_background-image:none;
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icons/back_lt.png', sizingMethod='scale');
+}
+#outerImageContainer td.tc{
+	background:url(../icons/back_tb.png) 50% 0;
+	_background:none;
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icons/back_ct.png', sizingMethod='scale');
+}
+#outerImageContainer td.tr{
+	background:url(../icons/back_corvers.png) 100% 0;
+	_background-image:none;
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icons/back_rt.png', sizingMethod='scale');
+}
+#outerImageContainer td.ml{
+	background:url(../icons/back_lr.png) 0 50%;
+	_background-image:none;
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icons/back_lc.png', sizingMethod='scale');
+}
+#outerImageContainer td.mr{
+	background:url(../icons/back_lr.png) 100% 50%;
+	_background-image:none;
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icons/back_rc.png', sizingMethod='scale');
+}
+#outerImageContainer td.bl{
+	background:url(../icons/back_corvers.png) 0 100%;
+	_background-image:none;
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icons/back_lb.png', sizingMethod='scale');
+}
+#outerImageContainer td.bc{
+	background:url(../icons/back_tb.png) 50% 100%;
+	_background-image:none;
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icons/back_cb.png', sizingMethod='scale');
+}
+#outerImageContainer td.br{
+	background:url(../icons/back_corvers.png) 100% 100%;
+	_background-image:none;
+	_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='icons/back_rb.png', sizingMethod='scale');
+}

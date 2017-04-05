@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery点击图片弹出相册幻灯片代码</title>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+
+<link rel="stylesheet" href="css/visuallightbox.css" type="text/css" />
+
+<script type="text/javascript" src="js/jquery.js"></script>
+
+</head>
+<body>
+
+<h1 align="center">jquery平滑弹出幻灯片</h1>
+
+<div id="vlightbox">
+	<a id="firstImage" title="image 1" href="images/pic1.jpg" class="vlightbox"><img alt="image 1" src="images/pic1.jpg" /></a>
+	<a title="image 2" href="images/pic2.jpg" class="vlightbox"><img alt="image 2" src="images/pic2.jpg" /></a>
+	<a title="image 3" href="images/pic3.jpg" class="vlightbox"><img alt="image 3" src="images/pic3.jpg" /></a>
+	<a title="image 4" href="images/pic4.jpg" class="vlightbox"><img alt="image 4" src="images/pic4.jpg" /></a>
+	<a title="image 5" href="images/pic5.jpg" class="vlightbox vlightbox_hidden"><img alt="image 5" src="images/pic5.jpg" /></a>
+</div>
+
+<script type="text/javascript">
+var $VisualLightBoxParams$ = {autoPlay:true,borderSize:21,enableSlideshow:true,overlayOpacity:0.4,startZoom:true};
+</script>
+<script type="text/javascript" src="js/visuallightbox.js"></script>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+<p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
+</div>
+</body>
+</html>
