@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>搜狗输入法jQuery焦点图 - 站长素材</title>
+<style>
+/*样式格式化*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td { margin: 0; padding: 0; }
+fieldset, img { border: 0; }
+img { display:inline-block; }
+
+ol, ul { list-style: none outside none; }
+#wrapper{ width:1000px;margin:auto;position:relative; }
+.show_images_list_li {
+position: absolute;
+cursor: pointer;
+vertical-align:bottom; display:block
+}
+
+#belt {display: block;height: 122px;left: 200px;line-height: 1000px;overflow: hidden;position: absolute;top: 1px;width: 149px;
+background:url(features6.6/images/beltnew1.png) no-repeat; background:url(features6.6/images/images/beltnew.png) no-repeat\0; z-index:100;}
+
+.btn { background:url(features6.6/images/btn.jpg) no-repeat; width:101px; height:25px; margin:auto; position:relative; padding-top:350px;}
+.btn  a{width:17px; height:15px; overflow:none; display:block;background:url(features6.6/images/btn.jpg)  no-repeat; cursor: pointer;float:left;}
+.btn  a.active{ background:url(features6.6/images/btn.jpg) -17px 0 no-repeat;}
+
+
+</style>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	$(".btn").show();
+	$(".btn  a:first").addClass("active");	
+	$().gallery({
+		current: [".show_images_1",".show_images_1_img"],
+		left: [".show_images_2",".show_images_2_img"],
+		right: [".show_images_3",".show_images_3_img"],
+	none: [".show_images_4",".show_images_4_img"],
+		duration: 500,
+		start: function() {
+			$(".header_text").fadeOut(150);
+		},
+		end: function() {
+			$(".header_text").fadeIn(150);
+		},
+		autoChange : true,
+		changeTimeout: 3000,
+		stopTarget : ".header_stage"
+	});
+});
+</script>
+<link href="css/reset.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<br>
+<div id="wrapper">
+  <div id="maincontent">
+    <div id="huadong">
+      <ul class="show_images_list">
+        <li class="show_images_list_li show_images_1" style="z-index: 15; top: 1px; left: 200px;"><a href="http://sc.chinaz.com" target="_blank"><img  class="show_images_1_img" src="images/1.png" alt="" title="" style="width: 599px; height: 353px;"></a></li>
+        <li class="show_images_list_li show_images_2" style="z-index: 10; top: 20px; left: 0px;"><a href="http://sc.chinaz.com" target="_blank"><img class="show_images_2_img" src="images/4.png"alt="" title="" style="width: 527px; height: 310px;"></a></li>
+        <li class="show_images_list_li show_images_3" style="z-index: 5; top: 20px; left: 459px;"><a href="http://sc.chinaz.com" target="_blank"><img class="show_images_3_img" src="images/2.png" alt="" title="" style="width: 527px; height: 310px;"></a></li>
+        <li class="show_images_list_li show_images_4" style="z-index: 0; top: 20px; left: 200px;"><a href="http://sc.chinaz.com" target="_blank"><img class="show_images_4_img" src="images/3.png" alt="" title="" style="width: 527px; height: 310px;"></a></li>
+      </ul>
+      <script type="text/javascript" src="js/image_gallery.js"></script>
+      <div class="header_text"  id="belt"></div>
+    </div>
+    <div class="btn"> <a class="btn1" rel="1" ></a> <a class="btn2" rel="2" ></a> <a class="btn3" rel="3" ></a> <a class="btn4" rel="4" ></a> </div>
+  </div>
+</div>
+<div style="text-align:center;clear:both"><br>
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. </p><br>
+<p>来源：<a href="http://www.jq-school.com/" target="_blank">jq-school</a></p>
+</div>
+</body>
