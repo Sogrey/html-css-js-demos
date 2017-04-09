@@ -26,8 +26,8 @@ header .titile {
 
 header .left img,
 header .right img {
-	height: 30px;
-	padding-top: 4px;
+	    height: 20px;
+    padding-top: 10px;
 }
 
 header .left,
