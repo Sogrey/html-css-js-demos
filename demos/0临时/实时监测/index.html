@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>实时监测</title>
+		<link rel="stylesheet" href="css/html5.base.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/style.min.css" />
+		<script type="text/javascript">
+			document.addEventListener('plusready', function() {
+				//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+
+			});
+		</script>
+	</head>
+
+	<body>
+		<header>
+			<div class="left" onclick="close_search()"><img src="img/ic_back.png" /></div>
+			<div class="titile title_center">实时监测</div>
+			<div class="titile input_search display_none"><input type="text" /></div>
+			<div class="right" onclick="toggle_search()"><img src="img/ic_search .png" /></div>
+
+		</header>
+		<div class="content_datas">
+			<table>
+				<tr>
+					<th>所属区域 </th>
+					<th>编号 </th>
+					<th>数值 </th>
+					<th>类型 </th>
+					<th>时间 </th>
+				</tr>
+				<tr>
+					<td>305工作面风流</td>
+					<td>3557</td>
+					<td>21.8</td>
+					<td>温度 </td>
+					<td>21:19:22 </td>
+				</tr>
+				<tr>
+					<td>305工作面风流</td>
+					<td>3557</td>
+					<td>21.8</td>
+					<td>温度 </td>
+					<td>21:19:22 </td>
+				</tr>
+				<tr>
+					<td>305工作面风流</td>
+					<td>3557</td>
+					<td>21.8</td>
+					<td>温度 </td>
+					<td>21:19:22 </td>
+				</tr>
+				<tr>
+					<td>305工作面风流</td>
+					<td>3557</td>
+					<td>21.8</td>
+					<td>温度 </td>
+					<td>21:19:22 </td>
+				</tr>
+
+			</table>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script>
+		function toggle_search() {
+			if($(".input_search").hasClass("display_none")) {
+				$(".input_search").removeClass("display_none");
+				$(".title_center").addClass("display_none");
+				$(".left img").attr("src","img/ic_close.png")
+			} else {
+				//执行搜索事件
+				var val = $(".input_search input").val();
+				alert("执行检索事件:"+val);
+			}
+		}
+		function close_search(){
+			if(!$(".input_search").hasClass("display_none")) {
+				$(".input_search").addClass("display_none");
+				$(".title_center").removeClass("display_none");
+				$(".left img").attr("src","img/ic_back.png")
+			}
+		}
+	</script>
+
+</html>
