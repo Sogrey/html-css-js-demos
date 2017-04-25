@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>GL WebGL BIM Engine</title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/style_GL_WebGL_BIM_Engine.css" />
+
+
+
+
+<!--	
+	<style>
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(255,0,0,0.8); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(255,0,0,0.4); 
+}
+
+.container {
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+}
+
+.dark .container {
+      overflow: hidden; 
+}
+	</style>-->
+	<link rel="stylesheet" href="js/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css">
+				
+
+	</head>
+	<body onload="onloadFun()">
+		<div class="wrapp_content">
+			<div class="canvas_3d">
+				<!--3D模型画布在此-->
+			</div>
+			<div class="btn_functions">
+				<!--3D模型画布上方功能按钮在此-->
+			</div>
+			<div class="btn_tabs">
+				<!--左上角查看模型树结构属性按钮在此-->
+				<div class="tabs_btn">
+					<ul>
+						<li class="tabs_btn_models" onclick="toggleTabs(this,1)"></li>
+						<li class="tabs_btn_tree" onclick="toggleTabs(this,2)"></li>
+						<li class="tabs_btn_attrs" onclick="toggleTabs(this,3)"></li>						
+					</ul>
+				</div>
+				<div class="pop_box">
+					<div class="arrow arrow1"></div>
+					<div class="pop_box_contents">
+						
+						<div class="pop_contents_tree display_none">
+										<!--树结构-->
+							<div class="container">	
+							<!--<div class="scrollbar style-7" >
+								<div class="force-overflow">-->
+									<ul class="treeview tree_root">
+									<li>
+										<i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">写字楼构架模型写字楼构架模型写字楼构架模型写字楼构架模型写字楼构架模型</span>
+										<ul class="treeview">
+											<li>
+												<i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">xxxxx</span>
+												<ul class="treeview tree_ul_display_none">
+													<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox i_tree_checked"></i><span class="tree_leave" id="007">这个有ID</span></li>
+													<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">yyyyy</span></li>
+													<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox i_tree_checked"></i><span class="tree_leave">yyyyy</span></li>
+													<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">yyyyy</span></li>
+													<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox i_tree_checked"></i><span class="tree_leave">yyyyy</span></li>
+												</ul>
+											</li>											
+											<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">xxxxx</span></li>
+											<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">xxxxx</span></li>
+											<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">xxxxx</span></li>
+											<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">xxxxx</span></li>
+											<li>
+												<i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">xxxxx</span>
+												
+												<ul class="treeview">
+															<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox i_tree_checked"></i><span class="tree_leave" id="007">这个有ID</span></li>
+															<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">yyyyy</span></li>
+															<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox i_tree_checked"></i><span class="tree_leave">yyyyy</span></li>
+															<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">yyyyy</span></li>
+															<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox i_tree_checked"></i><span class="tree_leave">yyyyy</span></li>
+												</ul>											
+											</li>
+										</ul>
+									</li>
+									
+									<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">写字楼构架模型</span></li>
+									<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">写字楼构架模型</span></li>
+									<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">写字楼构架模型</span></li>
+									<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">写字楼构架模型</span></li>
+									<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">写字楼构架模型</span></li>
+									<li>
+										<i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">写字楼构架模型</span>
+									
+										<ul class="treeview">
+											<li>
+												<i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">xxxxx</span>
+												<ul class="treeview">
+													<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox i_tree_checked"></i><span class="tree_leave" id="007">这个有ID</span></li>
+													<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">yyyyy</span></li>
+													<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox i_tree_checked"></i><span class="tree_leave">yyyyy</span></li>
+													<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">yyyyy</span></li>
+													<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox i_tree_checked"></i><span class="tree_leave">yyyyy</span></li>
+												</ul>
+											</li>											
+											<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">xxxxx</span></li>
+											<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">xxxxx</span></li>
+											<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">xxxxx</span></li>
+											<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">xxxxx</span></li>
+											<li><i class="i_tree_expan"></i><i class="i_tree_file"></i><i class="i_tree_checkbox"></i><span class="tree_leave">xxxxx</span></li>
+										</ul>
+									</li>
+									</ul>
+								<!--</div>
+							</div>-->
+							</div>
+						</div>
+						<div class="pop_contents_attrs display_none">
+										<!--属性-->
+							<div class="container">			
+							<!--<div class="scrollbar style-7">
+								<div class="force-overflow">-->
+									<table>
+										<tr><td>长长长长长长长长的属性名</td><td>长长长长长长长长的属性值</tr>
+										<tr><td>属性名</td><td>属性值</tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>长长长长长长长长的属性名</td><td>长长长长长长长长的属性值</tr>
+										<tr><td>属性名</td><td>属性值</tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+										<tr><td>属性名</td><td>属性值</td></tr>
+									</table>
+								<!--</div>
+							</div>-->
+							</div>
+						</div>
+						<div class="pop_contents_models">
+										<!--模型列表-->
+										<div class="container">
+							<!--<div class="class_moz scrollbar style-7">
+								<div class="class_moz force-overflow">-->
+									<ul>
+									<li><label class="model_title" id="001">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</label><span class="checkbox float_right"><i class="check_slider"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="002">xxxx</label><span class="checkbox float_right"><i class="check_slider check_slider_hecked"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="003">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</label><span class="checkbox float_right"><i class="check_slider"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="004">xxxx</label><span class="checkbox float_right"><i class="check_slider check_slider_hecked"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="005">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</label><span class="checkbox float_right"><i class="check_slider"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="006">xxxx</label><span class="checkbox float_right"><i class="check_slider check_slider_hecked"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="007">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</label><span class="checkbox float_right"><i class="check_slider"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="008">xxxx</label><span class="checkbox float_right"><i class="check_slider check_slider_hecked"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="009">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</label><span class="checkbox float_right"><i class="check_slider"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="010">xxxx</label><span class="checkbox float_right"><i class="check_slider check_slider_hecked"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="011">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</label><span class="checkbox float_right"><i class="check_slider"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="012">xxxx</label><span class="checkbox float_right"><i class="check_slider check_slider_hecked"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="013">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</label><span class="checkbox float_right"><i class="check_slider"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="014">xxxx</label><span class="checkbox float_right"><i class="check_slider check_slider_hecked"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="015">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</label><span class="checkbox float_right"><i class="check_slider"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="016">xxxx</label><span class="checkbox float_right"><i class="check_slider check_slider_hecked"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="017">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</label><span class="checkbox float_right"><i class="check_slider"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="018">xxxx</label><span class="checkbox float_right"><i class="check_slider check_slider_hecked"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="019">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</label><span class="checkbox float_right"><i class="check_slider"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="020">xxxx</label><span class="checkbox float_right"><i class="check_slider check_slider_hecked"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="021">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</label><span class="checkbox float_right"><i class="check_slider"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="022">xxxx</label><span class="checkbox float_right"><i class="check_slider check_slider_hecked"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="023">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</label><span class="checkbox float_right"><i class="check_slider"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									<li><label class="model_title" id="024">xxxx</label><span class="checkbox float_right"><i class="check_slider check_slider_hecked"></i><input type="checkbox" value="XXX" name="choose"></span></li>
+									</ul>
+								</div>
+							</div>
+						<!--</div>
+						</div>-->
+					</div>
+				</div>
+			</div>
+			<div class="logo">
+				<!--右下角logo或产品名称在此-->
+				<span class="no_selected">GL WebGL BIM Engine</span>
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="js/jquery-3.0.0.min.js" ></script>		
+		<script type="text/javascript" src="js/script_GL_WebGL_BIM_Engine.js" ></script>
+		<script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+		<script src="js/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+		
+	</body>
+</html>

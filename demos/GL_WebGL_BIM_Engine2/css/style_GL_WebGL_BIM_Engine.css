@@ -1,0 +1,88 @@
+@charset "utf-8";
+
+.no_selected { moz-user-select: -moz-none; -moz-user-select: none; -o-user-select: none; -khtml-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
+/*隐藏，腾出位置*/
+.pop_box_contents .display_none,.display_none,.pop_box_contents ul.tree_ul_display_none{display: none;}
+/*隐藏，占据位置*/
+.visibility_hidden{visibility: hidden;}
+.float_right{float: right;}
+.float_left{float: left;}
+
+body{background: #fff;font-family: "microsoft yahei","微软雅黑";height: 100%;width: 100%;/*min-height:768px ;min-width:1024px ;*/}
+
+.wrapp_content{height: 100%;width: 100%;}
+/*3D模型画布*/
+.canvas_3d{height: 100%;width: 100%;background: url(../img/test/bg.png) no-repeat center;background-size: 1197px 589px;}
+/*D模型画布上方功能按钮*/
+.btn_functions{}
+/*左上角查看模型树结构属性按钮*/
+.btn_tabs{position: absolute;top: 0;left: 0;height: 90%;/*min-height:750px;*/width: 265px;padding: 20px 0 20px 10px;}
+.btn_tabs .tabs_btn{padding-left: 10px;}
+.tabs_btn ul li{float: left;display: inline-block;width: 32px;height: 32px;background-color: #3BA2F2;border-radius: 32px;margin-right: 12px;cursor: pointer;}
+.tabs_btn .tabs_btn_models{background: #3BA2F2 url(../img/ic_tabs_btn_1.png) no-repeat center;}
+.tabs_btn .tabs_btn_tree{background: #3BA2F2 url(../img/ic_tabs_btn_2.png) no-repeat center;}
+.tabs_btn .tabs_btn_attrs{background: #3BA2F2 url(../img/ic_tabs_btn_3.png) no-repeat center;}
+.btn_tabs .pop_box{position: relative;top: 35px;height: 95%;}
+.pop_box .arrow{width: 0;height: 0;border-left: 8px solid transparent;border-right: 8px solid transparent;border-bottom: 10px solid rgba(0, 120, 214,0.7);position: relative;left: 15px;}
+.pop_box .arrow1{left: 18px;}
+.pop_box .arrow2{left: 62px;}
+.pop_box .arrow3{left: 106px;}
+.pop_box .pop_box_contents{background: rgba(0, 120, 214,0.7);height: 98%;border-radius: 5px;color: #fff;font-size: 14px;}
+.pop_box .pop_box_contents a{color: #fff;text-decoration: none;}
+.pop_box_contents >div{display: block;height: 94%;position: absolute;width: 92%;    padding: 4%;}
+.pop_box_contents .pop_contents_models{}
+.pop_box_contents .pop_contents_tree{}
+.pop_box_contents .pop_contents_attrs{}
+.pop_box_contents ul{display: block;width: 213px;/*margin-top:2%;*/}
+.pop_box_contents ul li{display: block;height: 30px;line-height: 30px;text-align: left;padding-left: 10px;}
+.pop_box_contents ul li:first-of-type{margin-top: 2%;}
+.pop_box_contents ul li:last-of-type{margin-top: 2%;}
+
+.container{width: 244px;height: 100%;overflow: hidden;/*overflow-y: auto;*/}
+/*模型列表*/
+.model_title{display: inline-block;width: 70%;overflow: hidden;text-overflow: ellipsis;}
+.checkbox::before {content: "";display: inline-block;width: 47px;height: 20px;background: #EEE;vertical-align: middle;-webkit-border-radius: 20px;border-radius: 20px;margin-right: 5px;-webkit-box-sizing:border-box;-webkit-transition:background ease-in .5s;cursor: pointer;}
+.checkbox{width: 47px;height: 20px;vertical-align: middle;margin-right: 5px;}
+.check_slider{display: inline-block;width: 18px;height: 18px;background: rgba(197,212,230,0.7);border-radius: 18px;position: relative;top: -25px;left: 27px;cursor: pointer;}
+.check_slider_hecked{background: rgba(0, 120, 214,0.7);left: 1px;}
+
+.scrollbar{	float: left;height: 100%;width: 100%;background: transparent;overflow-y: auto;}
+.force-overflow{/*min-height: 450px;*/}
+.style-7::scrollbar-track {-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);background-color: transparent;border-radius: 10px;}
+.style-7::scrollbar-thumb {border-radius: 10px;background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgba(122,153,217,0.7)), color-stop(0.72, rgba(73,125,189,0.7)), color-stop(0.86, rgba(28,58,148,0.7)));}
+.style-7::scrollbar {width: 10px;background-color: rgba(255,255,255,0.7);border-radius: 10px;}
+.style-7::-webkit-scrollbar-track {-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);background-color: transparent;border-radius: 10px;}
+.style-7::-webkit-scrollbar-thumb {border-radius: 10px;background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgba(122,153,217,0.7)), color-stop(0.72, rgba(73,125,189,0.7)), color-stop(0.86, rgba(28,58,148,0.7)));}
+.style-7::-webkit-scrollbar {width: 10px;background-color: rgba(255,255,255,0.7);border-radius: 10px;}
+
+input[type="checkbox"]{display: none;}
+input[type="checkbox"]+label {display: inline-block;width: 48%;margin-top: 10px;margin-left: 5px;text-align: left;-webkit-box-sizing: border-box;}
+input[type="checkbox"]:checked+label::before{background-color: rgb(53, 183, 111);border: 5px #EEEEEE solid;}
+/*属性*/
+.pop_contents_attrs{}
+.pop_contents_attrs table{display: block;width: 213px;/*margin-top:2%;*/}
+.pop_contents_attrs table tr{/*line-height: 30px;*/font-size: 14px;}
+.pop_contents_attrs table tr td{border-bottom: rgba(197,212,230,0.7) 1px solid;min-height: 30px;padding: 5px 0;}
+.pop_contents_attrs table tr td:first-of-type{padding-right: 10px;/*border-right: rgba(197,212,230,0.7) 1px solid;*/}
+/*.pop_contents_attrs table tr td:last-of-type{padding-left: 10px;}*/
+/*树结构*/
+.pop_contents_tree{}
+.pop_contents_tree .treeview{}
+.pop_contents_tree .treeview > li{margin-left: 10px;height: auto;/*overflow: hidden;text-overflow: ellipsis;*/margin-top: 0;}
+.pop_contents_tree .tree_root > li{margin-left: 0;}
+.pop_contents_tree .treeview > ul{margin-left: 10px;}
+.pop_contents_tree .tree_root > ul{margin-left: 0;}
+.pop_contents_tree .treeview > li:last-of-type{margin-top: 0;}
+.pop_contents_tree .treeview > li+ul{}
+.pop_contents_tree .treeview span.tree_leave{    display: inline-block;cursor: pointer;width: 65%;height: 30px;line-height: 30px;overflow: hidden;vertical-align: bottom;}
+
+.i_tree_expan,.i_tree_file,.i_tree_checkbox{display: inline-block;margin-right: 5px;}
+.i_tree_expan,.i_tree_checkbox{cursor: pointer;}
+.i_tree_expan{width: 13px;height: 13px;background: url(../img/ic_expan.png) no-repeat center;}
+.i_tree_retract{background: url(../img/ic_retract.png) no-repeat center;}
+.i_tree_file{width: 14px;height: 12px;background-image: url(../img/ic_file.png);}
+.i_tree_checkbox{width: 12px;height: 12px;background-color: #fff;border-radius: 3px;}
+.i_tree_checked{background: url(../img/ic_tick.png) no-repeat center;background-color: #fff;border-radius: 3px;}
+/*logo和产品名称*/
+.logo{display: inline-block;position: absolute;right: 40px;bottom: 40px;}
+.logo span{color: #313235;font-size: 18px;font-weight: 700;}
