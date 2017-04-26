@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="jQuery" />
+<meta name="description" content="Helloweba演示平台，演示XHTML、CSS、jquery、PHP案例和示例" />
+<title>演示：将复杂form表单序列化serialize-object.js</title>
+<link rel="stylesheet" href="css/bootstrap/3.3.5/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/demo.css">
+</head>
+<body>
+<div class="container">
+	<div class="row main">
+		<div class="col-md-12">
+			<h2 class="top_title"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><a href="javascript:;">将复杂form表单序列化serialize-object.js</a></h2>
+			
+			<div class="row" style="margin-top:30px">
+				<div class="col-md-10">
+					<form class="form-horizontal" role="form" id="myform" action="" method="post">
+					  <div class="form-group">
+					    <label for="email" class="col-sm-2 control-label">Email</label>
+					    <div class="col-sm-10">
+					      <input type="email" class="form-control" id="email" name="user[email]" placeholder="Email" value="demo@example.com">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="inputPassword3" class="col-sm-2 control-label">技能</label>
+					    <div class="col-sm-10">
+					      	<label class="checkbox-inline">
+							  <input type="checkbox" name="user[skill][]" value="html5"> HTML5
+							</label>
+							<label class="checkbox-inline">
+							  <input type="checkbox" name="user[skill][]" value="javascript" checked> Javascript
+							</label>
+							<label class="checkbox-inline">
+							  <input type="checkbox" name="user[skill][]" value="PHP" checked> PHP
+							</label>
+							<label class="checkbox-inline">
+							  <input type="checkbox" name="user[skill][]" value="Python"> Python
+							</label>
+							<label class="checkbox-inline">
+							  <input type="checkbox" name="user[skill][]" value="MySQL" checked> MySQL
+							</label>
+							<label class="checkbox-inline">
+							  <input type="checkbox" name="user[skill][]" value="Redis"> Redis
+							</label>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					  	<label for="email" class="col-sm-2 control-label">月薪</label>
+					    <div class="col-sm-10">
+					        <select class="form-control" name="user[salary]">
+							  <option value="5000">5000以下</option>
+							  <option value="5000-10000">5000-10000</option>
+							  <option value="10000-20000">10000-20000</option>
+							  <option value="20000">20000以上</option>
+							</select>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					  	<label for="email" class="col-sm-2 control-label">自我评价</label>
+					    <div class="col-sm-10">
+					        <textarea class="form-control" name="user[intro]" rows="3"></textarea>
+					    </div>
+					  </div>
+					  
+					  <div class="form-group">
+					    <div class="col-sm-offset-2 col-sm-10">
+					      <button type="submit" class="btn btn-default" id="subbtn">提交</button>
+					    </div>
+					  </div>
+					</form>
+					
+				</div>
+				
+			</div>
+			<div class="row">
+				<p class="col-md-10 bg-info" id="result"></p>
+			</div>
+			
+		</div>
+
+
+	</div>
+</div>
+
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/jquery.serialize-object.min.js"></script>
+<script>
+$(function(){
+	$(document).on('click', '#subbtn', function(event) {
+		event.preventDefault();
+		
+		//var json_data = $('#myform').serialize();
+		var json_data = $('#myform').serializeJSON();
+		$("#result").css('padding','15px').html('<strong>POST提交JSON数据：</strong>'+ json_data);
+		$.post('post.php', json_data, function(data) {
+			$("#result").append('<br/><strong>PHP处理返回数组：</strong>'+ data);
+		});
+	});
+});	
+</script>
+</body>
+</html>
