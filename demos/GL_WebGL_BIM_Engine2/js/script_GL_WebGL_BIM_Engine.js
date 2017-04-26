@@ -95,8 +95,13 @@ function onloadFun(){
 					
 					$(".container").mCustomScrollbar({theme:"dark"});
 					
-					$(".class_moz").removeClass("scrollbar");
-					$(".class_moz").removeClass("style-7");
-					$(".class_moz").removeClass("force-overflow");
+//					$(".class_moz").removeClass("scrollbar");
+//					$(".class_moz").removeClass("style-7");
+//					$(".class_moz").removeClass("force-overflow");
 //	}
+
+	if ((navigator.userAgent.indexOf('MSIE') >= 0) 
+	    && (navigator.userAgent.indexOf('Opera') < 0)){
+	    $(".check_slider").css("top","-24px");
+	}
 }

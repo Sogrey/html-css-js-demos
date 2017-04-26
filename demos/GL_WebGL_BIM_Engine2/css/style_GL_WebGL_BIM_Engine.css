@@ -9,7 +9,7 @@
 .float_right{float: right;}
 .float_left{float: left;}
 
-body{background: #fff;font-family: "microsoft yahei","微软雅黑";height: 100%;width: 100%;min-height:768px ;min-width:1024px ;position: absolute;}
+body{background: #fff;font-family: "microsoft yahei","微软雅黑";height: 100%;width: 100%;/*min-height:768px ;min-width:1024px ;*/position: absolute;}
 
 .wrapp_content{height: 100%;width: 100%;}
 /*3D模型画布*/
@@ -44,7 +44,7 @@ body{background: #fff;font-family: "microsoft yahei","微软雅黑";height: 100%
 .model_title{display: inline-block;width: 70%;overflow: hidden;text-overflow: ellipsis;}
 .checkbox::before {content: "";display: inline-block;width: 47px;height: 20px;background: #EEE;vertical-align: middle;-webkit-border-radius: 20px;border-radius: 20px;margin-right: 5px;-webkit-box-sizing:border-box;-webkit-transition:background ease-in .5s;cursor: pointer;}
 .checkbox{width: 47px;height: 20px;vertical-align: middle;margin-right: 5px;}
-.check_slider{display: inline-block;width: 18px;height: 18px;background: rgba(197,212,230,0.7);border-radius: 18px;position: relative;top: -25px;left: 27px;cursor: pointer;}
+.check_slider{display: inline-block;width: 18px;height: 18px;background: rgba(197,212,230,0.7);border-radius: 18px;position: relative;top: -25px;top: -24px\9; /* all ie */top:-24px\0; /* ie8-9 */*top:-24px; /* ie6-7 */+top:-24px; /* ie7 */left: 27px;cursor: pointer;}
 .check_slider_hecked{background: rgba(0, 120, 214,0.7);left: 1px;}
 
 .scrollbar{	float: left;height: 100%;width: 100%;background: transparent;overflow-y: auto;}
