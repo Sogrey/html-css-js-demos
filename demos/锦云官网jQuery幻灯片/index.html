@@ -1,0 +1,119 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>锦云外贸管理网站jQuery全屏按钮控制图片上下滚动</title>
+<meta name="description" content="锦云外贸管理网站jquery全屏图片滚动，设置左右按钮来控制图片上下滚动。" />
+
+<link href="css/intro.css" type="text/css"  rel="stylesheet"/>
+
+<script src="js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(e){
+	
+	$("#left-btn,#right-btn").bind({
+		mouseenter:function(){
+			$("#left-btn,#right-btn").fadeTo(200,1); 
+		},
+		mouseleave:function(){
+			$("#left-btn,#right-btn").fadeTo(400,0.3); 
+		}
+	});
+	
+	var CURR = 1;
+	var SIV = setInterval(function(){
+		slideNext();
+	},3000);
+	 
+	$(".section-mask").mouseenter(function(){
+		clearInterval(SIV); 
+	}).mouseleave(function(){
+		SIV = setInterval(function(){
+			slideNext();
+		},3000);
+	});
+	
+	$("#right-btn").click(function(){ 
+		slideNext();
+	});
+	$("#left-btn").click(function(){ 
+		slidePrevious();
+	});
+
+	function slideNext(){ 
+		if( CURR >= 3) CURR = 1;
+		else CURR ++;
+		slideTo(CURR);
+	}
+	
+	function slidePrevious(){
+		if( CURR <= 1) CURR = 3;
+		else CURR --;
+		slideTo(CURR);
+	}
+	
+	function slideTo(c){
+		if(c == 1) {
+			$("#slidershow_list_02,#slidershow_list_03").removeClass("current");
+			$("#slidershow_list_01").addClass("current"); 
+			$("#slidershow_panel").animate({top:'0'},500);
+		}  
+		if(c == 2) {
+			$("#slidershow_list_01,#slidershow_list_03").removeClass("current");
+			$("#slidershow_list_02").addClass("current"); 
+			$("#slidershow_panel").animate({top:'-470px'},500);
+		}  
+		if(c == 3) {
+			$("#slidershow_list_01,#slidershow_list_02").removeClass("current");
+			$("#slidershow_list_03").addClass("current"); 
+			$("#slidershow_panel").animate({top:'-900px'},500);
+		}  
+	}
+	
+});
+</script>
+</head>
+
+<body>
+
+
+<div class="section-mask">  
+	<div class="section-box">
+		
+		<div class="section-list" style="display:absolute;z-index:9999;">
+			<ul>
+				<li id="slidershow_list_01" class="current" style="top:30px;">
+					<div class="text01"></div>
+				</li>
+				<li id="slidershow_list_02" style="top:180px;">
+					<div class="text02"></div>
+				</li>
+				<li id="slidershow_list_03" style="top:330px;">
+					<div class="text03"></div>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="section-pic" style="display:absolute;z-index:9999;">
+			<div id="slidershow_panel">
+				<img src="img/section_slidershow_pic_01.png" style="height:470px;width:720px;top:33px;float:left;" />
+				<img src="img/section_slidershow_pic_02.png" style="height:470px;width:720px;top:33px;float:left;" />
+				<img src="img/section_slidershow_pic_03.png" style="height:400px;width:720px;top:98px;float:left;" />
+			</div>
+		</div>
+		
+	</div>
+	
+	<div class="boxbg"></div>
+
+	<div class="section-control">
+		<a id="left-btn" class="control"></a>
+		<a id="right-btn" class="control"></a>
+	</div>
+
+</div>
+
+
+</body>
+</html>

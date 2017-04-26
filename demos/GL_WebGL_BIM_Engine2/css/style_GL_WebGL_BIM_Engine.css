@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+/*通用*/
 .no_selected { moz-user-select: -moz-none; -moz-user-select: none; -o-user-select: none; -khtml-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
 /*隐藏，腾出位置*/
 .pop_box_contents .display_none,.display_none,.pop_box_contents ul.tree_ul_display_none{display: none;}
@@ -8,7 +9,7 @@
 .float_right{float: right;}
 .float_left{float: left;}
 
-body{background: #fff;font-family: "microsoft yahei","微软雅黑";height: 100%;width: 100%;/*min-height:768px ;min-width:1024px ;*/}
+body{background: #fff;font-family: "microsoft yahei","微软雅黑";height: 100%;width: 100%;min-height:768px ;min-width:1024px ;position: absolute;}
 
 .wrapp_content{height: 100%;width: 100%;}
 /*3D模型画布*/

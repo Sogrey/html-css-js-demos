@@ -402,21 +402,21 @@
 
 .mCS-dark.mCSB_scrollTools .mCSB_draggerRail {
 	background-color: #000;
-	background-color: rgba(0, 0, 0, .15)
+	background-color: rgba(52, 108, 154, .15)
 }
 
 .mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
 	background-color: #000;
-	background-color: rgba(0, 0, 0, .75)
+	background-color: rgba(52, 108, 154, .75)
 }
 
 .mCS-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
-	background-color: rgba(0, 0, 0, .85)
+	background-color: rgba(52, 108, 154, .85)
 }
 
 .mCS-dark.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar,
 .mCS-dark.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar {
-	background-color: rgba(0, 0, 0, .9)
+	background-color: rgba(52, 108, 154, .9)
 }
 
 .mCS-dark.mCSB_scrollTools .mCSB_buttonUp {
