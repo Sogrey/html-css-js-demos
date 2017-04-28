@@ -42,13 +42,10 @@ body{background: #fff;font-family: "microsoft yahei","微软雅黑";height: 100%
 .container{width: 244px;height: 100%;overflow: hidden;/*overflow-y: auto;*/}
 /*模型列表*/
 .model_title{display: inline-block;width: 70%;overflow: hidden;text-overflow: ellipsis;}
-.checkbox::before {content: "";display: inline-block;width: 47px;height: 20px;background: #EEE;vertical-align: middle;-webkit-border-radius: 20px;border-radius: 20px;margin-right: 5px;-webkit-box-sizing:border-box;-webkit-transition:background ease-in .5s;cursor: pointer;}
-.checkbox{width: 47px;height: 20px;vertical-align: middle;margin-right: 5px;}
-.check_slider{display: inline-block;width: 18px;height: 18px;background: rgba(197,212,230,0.7);border-radius: 18px;position: relative;top: -25px;top: -24px\9; /* all ie */top:-24px\0; /* ie8-9 */*top:-24px; /* ie6-7 */+top:-24px; /* ie7 */left: 27px;cursor: pointer;}
-.check_slider_hecked{background: rgba(0, 120, 214,0.7);left: 1px;}
 
-.scrollbar{	float: left;height: 100%;width: 100%;background: transparent;overflow-y: auto;}
-.force-overflow{/*min-height: 450px;*/}
+
+/*.scrollbar{	float: left;height: 100%;width: 100%;background: transparent;overflow-y: auto;}
+.force-overflow{}
 .style-7::scrollbar-track {-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);background-color: transparent;border-radius: 10px;}
 .style-7::scrollbar-thumb {border-radius: 10px;background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgba(122,153,217,0.7)), color-stop(0.72, rgba(73,125,189,0.7)), color-stop(0.86, rgba(28,58,148,0.7)));}
 .style-7::scrollbar {width: 10px;background-color: rgba(255,255,255,0.7);border-radius: 10px;}
@@ -58,7 +55,47 @@ body{background: #fff;font-family: "microsoft yahei","微软雅黑";height: 100%
 
 input[type="checkbox"]{display: none;}
 input[type="checkbox"]+label {display: inline-block;width: 48%;margin-top: 10px;margin-left: 5px;text-align: left;-webkit-box-sizing: border-box;}
-input[type="checkbox"]:checked+label::before{background-color: rgb(53, 183, 111);border: 5px #EEEEEE solid;}
+input[type="checkbox"]:checked+label::before{background-color: rgb(53, 183, 111);border: 5px #EEEEEE solid;}*/
+
+.chk_3{display: none;}
+.chk_3 + label {
+    background-color: #fafbfa;
+    padding: 9px;
+    border-radius: 50px;
+    display: inline-block;
+    position: relative;
+    margin-right: 30px;
+    -webkit-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
+    top: 4px;
+}
+.chk_3 + label:before {
+    content: ' ';
+    position: absolute;
+    background: white;
+    top: 2px;
+    left: 28px;
+    z-index: 999999;
+    -webkit-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
+    box-shadow: 0 3px 1px rgba(0,0,0,0.05), 0 0px 1px rgba(0,0,0,0.3);
+    width: 16px;height: 16px;background: rgba(197,212,230,0.7);border-radius: 16px;
+}
+input[type="checkbox"]:checked+label::before {
+    background-color: rgba(0, 120, 214,0.7);
+    top: 2px;
+    left: 2px;
+}
+.chk_3 + label:after {
+	width: 47px;height: 20px;background: #EEE;vertical-align: middle;-webkit-border-radius: 20px;border-radius: 20px;margin-right: 5px;-webkit-box-sizing:border-box;-webkit-transition:background ease-in .5s;cursor: pointer;
+    content: ' ';
+    position: absolute;
+    top: 0;
+    -webkit-transition: box-shadow 0.1s ease-in;
+    transition: box-shadow 0.1s ease-in;
+    left: 0;
+    box-shadow: inset 0 0 0 0 #eee, 0 0 1px rgba(0,0,0,0.4);
+}
 /*属性*/
 .pop_contents_attrs{}
 .pop_contents_attrs table{display: block;width: 213px;/*margin-top:2%;*/}

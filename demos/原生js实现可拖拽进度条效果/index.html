@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>原生js实现可拖拽进度条效果</title>
+<style>
+body{margin:0;padding:0;font-size:12px;}
+ul.lanren{width:300px;margin:100px auto;}
+.scale_panel{color:#999;width:200px;position:absolute;line-height:18px;left:60px;top:-0px;}
+.scale_panel .r{float:right;}
+.scale span{width: 8px;height: 8px;position: absolute;left: -2px;top: -2px;cursor: pointer;border-radius: 8px;background: #f00;}
+.scale{ background-repeat: repeat-x; background-position: 0 100%; background-color: #E4E4E4; border-left: 1px #83BBD9 solid;  width: 200px; height: 4px; position: relative; font-size: 0px; border-radius: 3px; }
+.scale div{ background-repeat: repeat-x; background-color: #3BE3FF; width: 0px; position: absolute; height: 3px; width: 0; left: 0; bottom: 0; }
+.lanren li{font-size:12px;line-height:50px;position:relative;height:50px;list-style:none;}
+</style>
+</head>
+<body>
+<!-- 代码部分begin -->
+<ul class="lanren">
+	<li>red <span id="title">0</span>
+		<div class="scale_panel">
+			<span class="r">100</span>0
+			<div class="scale" id="bar">
+				<div></div>
+				<span id="btn"></span>
+			</div>
+		</div>
+	</li>
+</ul>
+<script>
+var scale = function (btn,bar,title){
+	this.btn=document.getElementById(btn);
+	this.bar=document.getElementById(bar);
+	this.title=document.getElementById(title);
+	this.step=this.bar.getElementsByTagName("div")[0];
+	this.init();
+};
+scale.prototype={
+	init:function (){
+		var f=this,g=document,b=window,m=Math;
+		f.btn.onmousedown=function (e){
+			var x=(e||b.event).clientX;
+			var l=this.offsetLeft;
+			var max=f.bar.offsetWidth-this.offsetWidth;
+			g.onmousemove=function (e){
+				var thisX=(e||b.event).clientX;
+				var to=m.min(max,m.max(-2,l+(thisX-x)));
+				f.btn.style.left=to+'px';
+				f.ondrag(m.round(m.max(0,to/max)*100),to);
+				b.getSelection ? b.getSelection().removeAllRanges() : g.selection.empty();
+			};
+			g.onmouseup=new Function('this.onmousemove=null');
+		};
+	},
+	ondrag:function (pos,x){
+		this.step.style.width=Math.max(0,x)+'px';
+		this.title.innerHTML=pos+'%';
+	}
+}
+new scale('btn','bar','title');
+</script>
+<!-- 代码部分end -->
+
+</body>
+</html>

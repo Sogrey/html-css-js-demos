@@ -5,7 +5,10 @@ $(function($) {
 	});
   $("i.i_tree_checkbox").on("click", function(){
 	i_checkbox_toggle(this);
-	});
+  });
+  $("span.tree_leave").on("click", function () {
+      i_checkbox_toggle(this);
+  });
   $("i.i_tree_expan").addClass("visibility_hidden");
   $("i.i_tree_file").addClass("display_none");
   $(".pop_contents_tree ul.treeview").addClass("tree_ul_display_none");
@@ -76,18 +79,22 @@ function checkbox_toggle(ele){
 	alert($($(ele).parent("li").find("label.model_title")).attr("id"));	
 }
 
-function i_checkbox_toggle(ele){
+function i_checkbox_toggle(ele) {
+    var checobox = $(ele).parent("li").children("i.i_tree_checkbox");
+    var checoboxAll = $(ele).parent("li").find("i.i_tree_checkbox");
+    var treeLeave = $(ele).parent("li").children("span.tree_leave");
 	//切换选中状态
-	if($(ele).hasClass("i_tree_checked")){
-		$(ele).removeClass("i_tree_checked")
+    if ($(checobox).hasClass("i_tree_checked")) {
+        $(checobox).removeClass("i_tree_checked")
+        $(checoboxAll).removeClass("i_tree_checked")
 	}else{
-		$(ele).addClass("i_tree_checked")
+        $(checobox).addClass("i_tree_checked")
+        $(checoboxAll).addClass("i_tree_checked")
 	}
 	//被选择的checkbox ID
-	alert($($(ele).parent("li").find("span.tree_leave")).attr("id"));	
+    alert($(treeLeave).attr("id"));
 }
 function onloadFun(){
-//	if (!$.browser.webkit) {
 				 	$('body').addClass('dark');
 				
 					$.mCustomScrollbar.defaults.scrollButtons.enable=true; //enable scrolling buttons by default
@@ -95,13 +102,9 @@ function onloadFun(){
 					
 					$(".container").mCustomScrollbar({theme:"dark"});
 					
-//					$(".class_moz").removeClass("scrollbar");
-//					$(".class_moz").removeClass("style-7");
-//					$(".class_moz").removeClass("force-overflow");
-//	}
-
-	if ((navigator.userAgent.indexOf('MSIE') >= 0) 
-	    && (navigator.userAgent.indexOf('Opera') < 0)){
-	    $(".check_slider").css("top","-24px");
-	}
+					if (isFirefox = navigator.userAgent.indexOf("Firefox") > 0) {
+					    $(".pop_contents_models ul li").css("position", "relative");
+					    $(".pop_contents_models ul li span.checkbox").css({ "position": "relative", "top": " -40px" });
+					}
+					
 }
