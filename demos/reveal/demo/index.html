@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>演示：Revealjs一个专门用来做HTML演示文稿的框架</title>
+	<link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/moon.css">
+</head>
+<body>
+	<div class="reveal">
+        <div class="slides">
+            <section>
+            	<h2>Reveal.js</h2>
+            	<p>一个能够帮助我们很轻易地使用 HTML 创建一个漂亮的演示文稿的框架。</p>
+                
+            </section>
+            <section>
+                <h2>幻灯片切换方式</h2>
+            	<p class="fragment">右下角控制条控制切换</p>
+            	<p class="fragment">可以使用键盘方向键操作</p>
+                <p class="fragment">可以设置使用鼠标滚轮切换</p>
+                <p class="fragment">移动端滑动切换</p>
+            </section>
+            <section>
+	            <h2>自动滑动</h2>
+                <pre><code>
+// 每 5 秒滑动一次，如果设置成0，则不自动滑动
+Reveal.configure({
+  autoSlide: 5000
+});
+                </code></pre>
+        	</section>
+        	<section data-background="#ff0000" id="s4">
+	            <h2>幻灯片背景</h2>
+                <p>幻灯片包含在幕的一个有限区域中，默认情况下，允许它们适应任何视口和缩放一致性。你可以通过给你的 &lt;section&gt; 元素添加一个 data-background 属性来在幻灯片之外添加整个页面的背景。支持四种类型的背景： color, image, video 和 iframe。</p>
+        	</section>
+            <section data-transition="zoom">
+                <h2>幻灯片切换效果</h2>
+                <p>局幻灯片切换效果是通过 transition 配置值来设定的。你可以通过指定&lt;section&gt;元素的 data-transition 属性来重写全局配置。</p>
+                <p>支持效果： none/fade/slide/convex/concave/zoom</p>
+            </section>
+            <section>
+                <h2>嵌入式多媒体</h2>
+                <p>嵌入的 HTML5 &lt;video&gt;/&lt;audio&gt; 以及 YouTube 内联框架将会在你从一个幻灯片导航离开的时候自动暂停。这可以通过给你的元素指定一个 data-ignore 属性来禁止。</p>
+                <video class="stretch" data-autoplay src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></video>
+            </section>
+            <section>
+                <h2>内部链接</h2>
+                <p>在幻灯片之间链接是很容易的。下面的例子中，第一个链接指向了另外一个幻灯片的索引，第二个链接指向了另外一个幻灯片的ID属性 (&lt;section id="some-slide"&gt;)：</p>
+                <a href="#/s4">链接到第4张幻灯片</a>
+            </section>
+            <section>
+                <h2>概览与全屏模式</h2>
+                <p>点击 "Esc" 或 "o" 键来切换概览模式。当你在这种模式下的时候，你仍然可以在幻灯片之间导航。</p>
+                <p>只需要在你的键盘上点击 »F« 按键即可进入全屏模式。点击 »ESC« 按键推出全屏模式。</p>
+            </section>
+            <section>
+                <h2>嵌入图片与链接</h2>
+                <img data-src="/attachments/fck/end.jpg"><br/>
+                <a href="http://www.helloweba.com/view-blog-378.html" target="_blank">点击查看教程</a>
+            </section>
+        </div>
+    </div>
+<script src="js/reveal.js"></script>
+<script>
+    Reveal.initialize({
+	// 是否在右下角展示控制条
+	controls: true,
+	// 是否显示演示的进度条
+    progress: true,
+
+    // 是否显示当前幻灯片的页数
+    slideNumber: 'c/t',
+
+    // 是否将每个幻灯片改变加入到浏览器的历史记录中去
+    history: false,
+
+    // 是否启用键盘快捷键来导航
+    keyboard: true,
+
+    // 是否启用幻灯片的概览模式,开启后，可以使用ESC键查看幻灯片概览
+    overview: true,
+
+    // 是否将幻灯片垂直居中
+    center: true,
+
+    // 是否在触屏设备上启用触摸导航
+    touch: true,
+
+    // 是否循环演示
+    loop: false,
+
+    // 是否将演示的方向变成 RTL
+    rtl: false,
+
+    // 全局开启和关闭碎片
+    fragments: true,
+
+    // 标识演示文稿是否在嵌入模式中运行，即包含在屏幕的有限部分中的
+    embedded: false,
+
+    // 标识当问号键被点击的时候是否应该显示一个帮助的覆盖层
+    help: true,
+
+    //  两个幻灯片之间自动切换的时间间隔（毫秒），当设置成 0 的时候则禁止自动切换，该值可以被幻灯片上的 ` data-autoslide` 属性覆盖
+    autoSlide: 0,
+
+    // 当遇到用户输入的时候停止切换
+    autoSlideStoppable: true,
+
+    // 是否启用通过鼠标滚轮来导航幻灯片
+    mouseWheel: true,
+
+    //  是否在移动设备上隐藏地址栏
+    hideAddressBar: true,
+
+    // 是否在一个弹出的 iframe 中打开幻灯片中的链接
+    previewLinks: false,
+
+    // 切换过渡效果
+    transition: 'default', // none/fade/slide/convex/concave/zoom
+
+    // 过渡速度
+    transitionSpeed: 'default', // default/fast/slow
+
+    // 全屏幻灯片背景的过渡效果
+    backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+    // 除当前可见的之外的幻灯片数量
+    viewDistance: 3,
+
+    // 视差背景图片
+    parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+
+    // 视差背景尺寸
+    parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+
+    // 移动视差背景（水平和垂直）滑动变化的数量, 例如100
+    parallaxBackgroundHorizontal: '',
+    parallaxBackgroundVertical: ''
+});
+</script>
+</body>
+</html>
