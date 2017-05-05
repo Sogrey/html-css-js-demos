@@ -1,0 +1,12 @@
+*{ margin: 0; padding: 0;}
+body{ padding: 200px; font-size: 12px; background-color: #f0f0f0;}
+.tooltips{ border-width: 1px; border-style: solid; position: absolute; display: none; border-radius: 3px; opacity: 0; filter:alpha( opacity = 0) ; z-index: 999;}
+.tooltips p.content{ padding: 5px; }
+.tooltips .triangle-front,.tooltips .triangle-back{ width: 0; height: 0; overflow: hidden; border-width: 8px; border-style: solid; position: absolute; border-color: transparent ; top: 100%; left: 50%; margin-left: -8px;}
+.tooltips .triangle-back{ margin-top: -1px;}
+
+.yellow{ border-color: #c7c08d; background-color: #fffac3;}
+.yellow .triangle-front{ border-top-color: #c7c08d;}
+.yellow .triangle-back{ border-top-color: #fffac3;}
+
+a{ padding: 5px; margin-right: 20px; border: 1px solid #cc00dd;}
