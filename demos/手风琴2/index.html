@@ -1,0 +1,74 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SW Family</title>
+
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;text-decoration:none;}
+body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
+
+.pic{width:1100px;height:430px;margin:70px auto 0;}
+.pic ul li{list-style:none;width:100px;height:429px;float:left;}
+.pic .l1{background-image:url(img/1.jpg);}
+.pic .l2{background-image:url(img/2.jpg);}
+.pic .l3{background-image:url(img/3.jpg);}
+.pic .l4{background-image:url(img/4.jpg);width:789px;}
+.txt{width:100px; height:429px;background:#000;filter:alpha(opacity=50);background:rgba(0,0,0,.5);}
+.txt p{color:#fff;font-family:"微软雅黑";float:left;position:relative;}
+.txt .p1{font-size:12px;width:12px;margin:25px 25px 0 20px;}
+.txt .p2{font-size:14px;width:14px;margin-top:25px;}
+</style>
+
+</head>
+
+<body>
+
+<div class="pic">
+	<ul>
+		<li class="l1">
+			<a href="javascript:;" target="_blank">
+				<div class="txt">
+					<p class="p1">作者 ： 默默的墨墨</p>
+					<p class="p2">我的个人拉萨之旅｜｜故事之城</p>
+				</div>
+			</a>
+		</li>
+		<li class="l2">
+			<a href="javascript:;" target="_blank">
+				<div class="txt">
+					<p class="p1">作者 ： 默默的墨墨</p>
+					<p class="p2">我的个人拉萨之旅｜｜故事之城</p>
+				</div>
+			</a>
+		</li>
+		<li class="l3"> 
+			<a href="javascript:;" target="_blank">
+				<div class="txt">
+					<p class="p1">作者 ： 默默的墨墨</p>
+					<p class="p2">我的个人拉萨之旅｜｜故事之城</p>
+				</div>
+			</a>
+		</li>
+		<li class="l4">          
+			<a href="javascript:;" target="_blank">
+				<div class="txt">
+					<p class="p1">作者 ： 默默的墨墨</p>
+					<p class="p2">我的个人拉萨之旅｜｜故事之城</p>
+				</div>
+			</a>
+		</li>
+	</ul>
+</div>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+$(".pic ul li").hover(function(){
+	$(this).stop(true).animate({width:"789px"},500).siblings().stop(true).animate({width:"100px"},500);
+});
+</script>
+
+</body>
+</html>
