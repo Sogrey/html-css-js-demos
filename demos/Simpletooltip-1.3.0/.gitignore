@@ -1,0 +1,21 @@
+# osx noise
+.DS_Store
+profile
+icons
+Icon
+
+# svn & cvs
+.svn
+CV
+
+# Extra noise
+.settings/*
+.buildpath
+.project
+nbproject
+deploy.sh
+*.psd
+
+# node
+/node_modules
+/bower_components

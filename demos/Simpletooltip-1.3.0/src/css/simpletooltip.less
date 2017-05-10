@@ -1,0 +1,78 @@
+/**
+ * Simpletooltip is a JQuery plugin, thought to insert short tooltips to any element of your website more easily
+ * v1.3.0
+ *
+ * 2014 Carlos Sanz Garcia
+ * Distributed under GPL-3.0 license
+ *
+ * http://not-only-code.github.com/Simpletooltip
+ */
+
+// helpers ----------------------------------
+
+@import "/bower_components/clearless/mixins/helpers.less";
+
+
+// Variables --------------------------------
+
+@theme-color:  #222;
+@border-color: (@theme-color - #111);
+@text-color: #ccc;
+@tooltip-width: 200px;
+@padding-height: 6px;
+@padding-width: 8px;
+@border-width: 2px;
+@arrow-width: 6px;
+@arrow-position: -((@arrow-width * 2) + @border-width);
+@arrow-side-width: round((@arrow-width*3)/4);
+@arrow-side-position: -((@arrow-side-width * 2) + @border-width);
+
+// Tooltip ----------------------------------
+
+.simpletooltip {
+	cursor: pointer;
+}
+
+.simple-tooltip {
+	position: absolute;
+	display: block;
+	width: auto;
+	max-width: @tooltip-width;
+	height: auto;
+	padding: @padding-height @padding-width;
+	color: @text-color;
+	font: normal 13px/1.3em 'Helvetica', 'Arial', 'Sans-serif';
+	border: solid @border-width @border-color;
+	background-color: @theme-color;
+	margin-bottom: 30px;
+	
+	.box-shadow(0px 0px 10px fadeout(black, 80%));
+	.border-radius(5px);
+	
+	z-index: 9999;
+
+	.arrow {
+		display: block;
+		width: 0;
+		height: 0;
+		position: absolute;
+		border-width: @arrow-width;
+		border-style: solid;
+		border-color: transparent;
+	}
+
+	// Positions ----------------------------
+
+	&.top .arrow {
+		left: 50%;
+	}
+	&.left .arrow {
+		top: 50%;
+	}
+	&.bottom .arrow {
+		left: 50%;
+	}
+	&.right .arrow {
+		top: 50%;
+	}
+}
