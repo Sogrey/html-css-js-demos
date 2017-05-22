@@ -1,0 +1,15 @@
+pagewalkthrough.js参数配置。  http://www.jq22.com/jquery-info7009
+参数	           描述	                                      默认值
+popup	           弹出提示引导层
+wrapper            当前引导对应的元素位置
+type               弹出方式（tooltip和modal以及nohighlight）  tooltip
+position           弹出层位置（top,left, right or bottom）    bottom
+offsetHorizontal   是否水平显示                               0
+offsetVertical     是否垂直显示                               0
+width              弹出层宽度                                 320
+contentRotation    是否跳过 默认不跳过                        0
+autoScroll         是否自动滚动                               true
+scrollSpeed        滚动速度 单位毫秒                          1000
+lockScrolling      是否锁定滚动 默认不锁                      false
+onEnter            当按enter回调                              null
+onLeave            当结束回调                                 null
