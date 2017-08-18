@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>Select 排序，移动等</title>
+<style>
+.ecv_autoSizeDropDown
+{
+    font-family    : "Arial", "Helvetica", "sans-serif"; 
+    font-size    : 12px;
+    font-style    : normal;
+    color        : #201B74;
+    background-color: #FFFFFF;    
+    width:expression((this.offsetWidth>150)?'auto':'150');
+}
+</style>
+</head> 
+<body >
+<div style="font-size:10pt;">
+注1：左右移动进行选取 <br/>      
+注2：已解决的问题 <br/>      
+----能进行多行排序<br/>
+
+----解决排序时滚动条归零的问题<br/> 
+<br/> 
+<br/>
+注：本页面仅在IE6/FireFox1.5下测试过。其它浏览器或其它版本未经测试。<br/>       
+原作者：JK：<a href="mailTo:jk_10000@yahoo.com.cn?subject=About%20MoveRightOrLeft">JK_10000@yahoo.com.cn</a><br/>   
+
+<hr/>
+</div>
+
+<form name=frm>
+
+<table>
+<tr > 
+    <td> 
+        <select name=SrcSelect size=6 class="ecv_autoSizeDropDown" style="height:160px;" multiple ondblclick="moveLeftOrRight(document.frm.SrcSelect,document.frm.ObjSelect)">
+
+            <option value="1">test1</option> 
+            <option value="2">test2</option> 
+            <option value="3">test3</option> 
+            <option value="4">test4</option> 
+            <option value="5">test5</option> 
+            <option value="6">test6</option> 
+            <option value="7">test7</option> 
+            <option value="8">test8</option> 
+            <option value="9">test9 abcde abcde abcde abcde abcde abcde abcde abcde </option>
+
+        </select>
+
+    </td> 
+    <td width="30px">    
+        <input align="left" type=button value=">>" onclick="moveLeftOrRightAll(document.frm.SrcSelect,document.frm.ObjSelect)" ><br><br>
+        <input align="left" type=button value=">" onclick="moveLeftOrRight(document.frm.SrcSelect,document.frm.ObjSelect)" ><br><br>
+        <input align="left" type=button value="<" onclick="moveLeftOrRight(document.frm.ObjSelect,document.frm.SrcSelect)" ><br><br>
+        <input align="left" type=button value="<<" onclick="moveLeftOrRightAll(document.frm.ObjSelect,document.frm.SrcSelect)" >
+    </td>
+    <td> 
+        <select name=ObjSelect size=6 class="ecv_autoSizeDropDown" style="height:160px;" multiple ondblclick="moveLeftOrRight(document.frm.ObjSelect,document.frm.SrcSelect)">
+
+            <option value="11">test11</option> 
+            <option value="12">test12</option> 
+            <option value="13">test13</option> 
+            <option value="14">test14</option> 
+            <option value="15">test15</option> 
+            <option value="16">test16</option> 
+        </select>
+
+    </td> 
+    <td width="30px">
+        <input type=button value="AA" onclick="moveToTop(document.frm.ObjSelect)" > <br><br>
+
+        <input type=button value="A" onclick="moveUp(document.frm.ObjSelect)" > <br><br>
+
+        <input type=button value="V" onclick="moveDown(document.frm.ObjSelect)" ><br><br>
+
+        <input type=button value="VV" onclick="moveToBottom(document.frm.ObjSelect)" >
+
+    </td>
+</tr> 
+</table>
+
+</form>
+
+<script language=javascript>
+
+function moveLeftOrRight(fromObj,toObj) 
+{
+    var fromObjOptions=fromObj.options;
+    for(var i=0;i<fromObjOptions.length;i++){
+        if(fromObjOptions[i].selected){
+            toObj.appendChild(fromObjOptions[i]);
+            i--;
+        }
+    }
+    resetAutoWidth(fromObj);
+    resetAutoWidth(toObj);
+}
+
+function moveLeftOrRightAll(fromObj,toObj) 
+{
+    var fromObjOptions=fromObj.options;
+    if(fromObjOptions.length>1000) {
+        //if(!confirm("Are you sure to move options?")) return false;
+    }
+    for(var i=0;i<fromObjOptions.length;i++){
+        fromObjOptions[0].selected=true;
+        toObj.appendChild(fromObjOptions[i]);
+        i--;
+    }
+    resetAutoWidth(fromObj);
+    resetAutoWidth(toObj);
+}
+
+function moveUp(selectObj) 
+{ 
+    var theObjOptions=selectObj.options;
+    for(var i=1;i<theObjOptions.length;i++) {
+        if( theObjOptions[i].selected && !theObjOptions[i-1].selected ) {
+            swapOptionProperties(theObjOptions[i],theObjOptions[i-1]);
+        }
+    }
+}
+
+function moveDown(selectObj) 
+{ 
+    var theObjOptions=selectObj.options;
+    for(var i=theObjOptions.length-2;i>-1;i--) {
+        if( theObjOptions[i].selected && !theObjOptions[i+1].selected ) {
+            swapOptionProperties(theObjOptions[i],theObjOptions[i+1]);
+        }
+    }
+}
+
+function moveToTop(selectObj){
+    var theObjOptions=selectObj.options;
+    var oOption=null;
+    for(var i=0;i<theObjOptions.length;i++) {
+        if( theObjOptions[i].selected && oOption) {
+            selectObj.insertBefore(theObjOptions[i],oOption);
+        }
+        else if(!oOption && !theObjOptions[i].selected) {
+            oOption=theObjOptions[i];
+        }
+    }
+}
+
+function moveToBottom(selectObj){
+    var theObjOptions=selectObj.options;
+    var oOption=null;
+    for(var i=theObjOptions.length-1;i>-1;i--) {
+        if( theObjOptions[i].selected ) {
+            if(oOption) {
+                oOption=selectObj.insertBefore(theObjOptions[i],oOption);
+            }
+            else oOption=selectObj.appendChild(theObjOptions[i]);
+        }
+    }
+
+}
+
+function selectAllOption(selectObj){
+    var theObjOptions=selectObj.options;
+    for(var i=0;i<theObjOptions.length;i++){
+        theObjOptions[0].selected=true;
+    }
+}
+
+/* private function */
+function swapOptionProperties(option1,option2){
+    //option1.swapNode(option2);
+    var tempStr=option1.value;
+    option1.value=option2.value;
+    option2.value=tempStr;
+    tempStr=option1.text;
+    option1.text=option2.text;
+    option2.text=tempStr;
+    tempStr=option1.selected;
+    option1.selected=option2.selected;
+    option2.selected=tempStr;
+}
+
+function resetAutoWidth(obj){
+    var tempWidth=obj.style.getExpression("width");
+    if(tempWidth!=null) {
+        obj.style.width="auto";
+        obj.style.setExpression("width",tempWidth);
+        obj.style.width=null;
+    }
+}
+
+</script> 
+</body> 
+</html>
