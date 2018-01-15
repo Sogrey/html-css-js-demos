@@ -1,0 +1,40 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>飘赞</title>
+	 <style type="text/css">
+	 	img{ width: 20px; height: 20px; position: absolute; bottom: 100px; left: 50%; margin-left: -10px; }
+	   	.btn{ width: 100px; height: 30px; border:0; background: red; color: #fff; position: absolute; bottom: 100px; left: 50%; margin-left: -50px; }
+    </style>
+</head>
+<body>
+	<div class="demo"></div>
+	<input id="btn1" type="button" class="btn" value="变换" />
+	
+	<script src="js/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+    $(function () {
+               
+     
+       $("#btn1").click(function(){
+       	 	var x = 100;       
+     		var y = 900;  
+       		var num = Math.floor(Math.random() * 3 + 1);
+       		var index=$('.demo').children('img').length;
+       		var rand = parseInt(Math.random() * (x - y + 1) + y); 
+       		
+       		$(".demo").append("<img src=''>");
+       		$('img:eq(' + index + ')').attr('src','images/'+num+'.png')
+       		$("img").animate({
+       			bottom:"800px",
+       			opacity:"0",
+       			left: rand,
+       		},3000)
+       		
+       })
+    }) 
+    </script>
+</body>
+</html>
