@@ -1,6 +1,8 @@
 
 # Html - css - js demos
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/344e77e96fa64d91ab91d96b5f74bd53)](https://www.codacy.com/app/Sogrey/html-css-js-demos?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Sogrey/html-css-js-demos&amp;utm_campaign=Badge_Grade)
+
 > 以下demo均来自互联网,仅作收藏之用
 
 
