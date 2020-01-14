@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, minimal-ui, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>倒计时的电子数字</title>
+<style>
+body {
+  color: #393e4d;
+  background-color: #f5f5f5;
+}
+@media screen and (prefers-color-scheme: dark) {
+  body {
+    color: #59f6fb;
+    background-color: #1c1b1e;
+  }
+}
+.digital {
+	position: relative;
+	width: 26px;
+	height: 46px;
+  margin-left: 10px;
+	transform: skew(-6deg);
+}
+.digital span {
+	position: absolute;
+	border-radius: 50vh;
+	box-sizing: border-box;
+}
+.digital .c1,
+.digital .c2,
+.digital .c3 {
+	height: 0;
+	width: 26px;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+}
+.digital .c1 {
+	top: 0;
+	left: 0;
+	border-top: 4px solid currentColor;
+}
+.digital .c2 {
+	top: 50%;
+	left: 0;
+	margin-top: -2px;
+}
+.digital .c2:before,
+.digital .c2:after {
+	content: "";
+	height: 0;
+	width: 24px;
+	border-left: 2px solid transparent;
+	border-right: 2px solid transparent;
+	box-sizing: border-box;
+}
+.digital .c2:before {
+	position: absolute;
+	top: 0;
+	left: -3px;
+	border-bottom: 2px solid currentColor;
+}
+.digital .c2:after {
+	position: absolute;
+	top: 2px;
+	left: -3px;
+	border-top: 2px solid currentColor;
+}
+.digital .c3 {
+	bottom: 0;
+	left: 0;
+	border-bottom: 4px solid currentColor;
+}
+.digital .l1,
+.digital .l2 {
+	height: 21px;
+	width: 0;
+	left: 0;
+	border-top: 2px solid transparent;
+	border-bottom: 2px solid transparent;
+	border-left: 4px solid currentColor;
+}
+.digital .l1 {
+	top: 1px;
+	border-top-width: 4px;
+}
+.digital .l2 {
+	top: 24px;
+	border-bottom-width: 4px;
+}
+.digital .r1,
+.digital .r2 {
+	height: 21px;
+	width: 0;
+	right: 0;
+	border-top: 2px solid transparent;
+	border-bottom: 2px solid transparent;
+	border-right: 4px solid currentColor;
+}
+.digital .r1 {
+	top: 1px;
+	border-top-width: 4px;
+}
+.digital .r2 {
+	top: 24px;
+	border-bottom-width: 4px;
+}
+
+.digital_1 .c1,
+.digital_1 .c2,
+.digital_1 .c3,
+.digital_1 .l1,
+.digital_1 .l2,
+.digital_2 .l1,
+.digital_2 .r2,
+.digital_3 .l1,
+.digital_3 .l2,
+.digital_4 .c1,
+.digital_4 .c3,
+.digital_4 .l2,
+.digital_5 .l2,
+.digital_5 .r1,
+.digital_6 .r1,
+.digital_7 .c2,
+.digital_7 .c3,
+.digital_7 .l1,
+.digital_7 .l2,
+.digital_9 .l2,
+.digital_0 .c2 {
+	animation: changeDigital 200ms 0ms 1 ease-in forwards;
+}
+
+@keyframes changeDigital {
+	form {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+.clock {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+.gap {
+  height: 46px;
+  padding-left: 10px;
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 0.8;
+  transform: skew(-6deg);
+}
+</style>
+</head>
+<body>
+<div class="clock">
+  <div class="digital digital_0">
+    <span class="c1"></span>
+    <span class="c2"></span>
+    <span class="c3"></span>
+    <span class="l1"></span>
+    <span class="l2"></span>
+    <span class="r1"></span>
+    <span class="r2"></span>
+  </div>
+  <div class="digital digital_0">
+    <span class="c1"></span>
+    <span class="c2"></span>
+    <span class="c3"></span>
+    <span class="l1"></span>
+    <span class="l2"></span>
+    <span class="r1"></span>
+    <span class="r2"></span>
+  </div>
+  <div class="gap">:</div>
+  <div class="digital digital_0">
+    <span class="c1"></span>
+    <span class="c2"></span>
+    <span class="c3"></span>
+    <span class="l1"></span>
+    <span class="l2"></span>
+    <span class="r1"></span>
+    <span class="r2"></span>
+  </div>
+  <div class="digital digital_0">
+    <span class="c1"></span>
+    <span class="c2"></span>
+    <span class="c3"></span>
+    <span class="l1"></span>
+    <span class="l2"></span>
+    <span class="r1"></span>
+    <span class="r2"></span>
+  </div>
+  <div class="gap">:</div>
+  <div class="digital digital_0">
+    <span class="c1"></span>
+    <span class="c2"></span>
+    <span class="c3"></span>
+    <span class="l1"></span>
+    <span class="l2"></span>
+    <span class="r1"></span>
+    <span class="r2"></span>
+  </div>
+  <div class="digital digital_0">
+    <span class="c1"></span>
+    <span class="c2"></span>
+    <span class="c3"></span>
+    <span class="l1"></span>
+    <span class="l2"></span>
+    <span class="r1"></span>
+    <span class="r2"></span>
+  </div>
+</div>
+
+<script>
+var s1 = document.getElementsByClassName("digital")[5],
+    s2 = document.getElementsByClassName("digital")[4],
+    m1 = document.getElementsByClassName("digital")[3],
+    m2 = document.getElementsByClassName("digital")[2],
+    h1 = document.getElementsByClassName("digital")[1],
+    h2 = document.getElementsByClassName("digital")[0];
+
+setInterval(function(){
+  var date = new Date();
+  var h = date.getHours();
+  var m = date.getMinutes();
+  var s = date.getSeconds();
+  if (h < 10) {
+    h1.className = 'digital digital_' + h;
+    h2.className = 'digital digital_0';
+  } else {
+    h1.className = 'digital digital_' + parseInt(h%10);
+    h2.className = 'digital digital_' + parseInt(h/10);
+  }
+  if (m < 10) {
+    m1.className = 'digital digital_' + m;
+    m2.className = 'digital digital_0';
+  } else {
+    m1.className = 'digital digital_' + parseInt(m%10);
+    m2.className = 'digital digital_' + parseInt(m/10);
+  }
+  if (s < 10) {
+    s1.className = 'digital digital_' + s;
+    s2.className = 'digital digital_0';
+  } else {
+    s1.className = 'digital digital_' + parseInt(s%10);
+    s2.className = 'digital digital_' + parseInt(s/10);
+  }
+}, 1000)
+</script>
+</body>
+</html>
